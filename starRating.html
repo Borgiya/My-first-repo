@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .star{
+            border:none;
+            background-color: unset;
+            color:yellow;
+            padding:10px;
+            font-size: 3rem;
+        }
+        .star-container{
+            margin-top: 100px;
+            background-color: aliceblue;
+        }
+        p{
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+        <div class="star-container">
+        <button class="star">&#9734;</button>
+        <button class="star">&#9734;</button>
+        <button class="star">&#9734;</button>
+        <button class="star">&#9734;</button>
+        <button class="star">&#9734;</button>
+        <p class="score"> your Rate:0</p>
+        </div>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var stars = document.querySelectorAll(".star");
+        var currentRate = document.querySelector(".score");
+
+        stars.forEach((star, index) => {
+            star.addEventListener("click", () => {
+                var currentStar = index + 1;
+                currentRate.textContent = `Your Rate: ${currentStar}`;
+
+                stars.forEach((star, i) => {
+                    if (currentStar >= i+1 ) {
+                        star.innerHTML = '&#9733;'; // Filled star entity
+                    } else {
+                        star.innerHTML = '&#9734;'; // Empty star entity
+                    }
+                });
+            });
+        });
+    });
+</script>
+
+
+</body>
+</html>
